@@ -1,0 +1,13 @@
+[sshd]
+enabled = true
+port    = ssh
+filter  = sshd
+logpath = %(sshd_log)s
+maxretry = 3
+bantime  = 1h
+findtime = 10m
+
+Check overall status	sudo fail2ban-client status
+See banned IPs for SSH	sudo fail2ban-client status sshd
+Unban an IP	sudo fail2ban-client set sshd unbanip <IP_ADDRESS>
+Manually ban an IPsudo fail2ban-client set sshd banip <IP_ADDRESS>
