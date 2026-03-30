@@ -1,0 +1,190 @@
+# ~/.config/tint2/tint2rc
+# Taskbar estilo Windows XP:
+#   - Posição: inferior, largura total
+#   - Botão "Iniciar" na esquerda (abre o menu do Openbox)
+#   - Lista de janelas no centro
+#   - System tray + relógio na direita
+#
+# Instale tint2: sudo apt install tint2
+# Aplique: pkill tint2 && tint2 &
+
+#---------------------------------------------
+# CONFIGURAÇÕES GERAIS
+#---------------------------------------------
+# Monitors (1 = primary)
+num_monitors = 1
+
+# Cor de fundo padrão da panel
+rounded = 0
+border_width = 1
+background_color = #245EDC 100
+border_color = #1A4BAD 100
+
+# Fundo 2 - itens normais (janelas/botões)
+rounded = 2
+border_width = 1
+background_color = #3A7FD5 80
+border_color = #2D6CC0 60
+
+# Fundo 3 - itens com foco/hover
+rounded = 2
+border_width = 1
+background_color = #5B9BD5 100
+border_color = #3A7FD5 80
+
+# Fundo 4 - itens ativos (janela em foco)
+rounded = 2
+border_width = 1
+background_color = #1E4FAD 100
+border_color = #0D3080 100
+
+# Fundo 5 - system tray / relógio
+rounded = 2
+border_width = 1
+background_color = #1A4BAD 80
+border_color = #0D3080 60
+
+#---------------------------------------------
+# PAINEL
+#---------------------------------------------
+panel_items = LP:TCS    # L=launcher, P=padding, T=taskbar, C=systray, S=clock
+panel_size = 100% 30
+panel_margin = 0 0
+panel_padding = 2 0 2
+panel_background_id = 1
+wm_menu = 1
+panel_dock = 0
+panel_position = bottom left horizontal
+panel_layer = top
+panel_monitor = all
+autohide = 0
+autohide_show_timeout = 0.3
+autohide_hide_timeout = 2
+autohide_height = 2
+strut_policy = follow_size
+panel_wm_name = tint2
+disable_transparency = 0
+mouse_effects = 1
+font_shadow = 0
+
+#---------------------------------------------
+# LAUNCHER (botão "Iniciar")
+# Fica na esquerda, abre o root-menu do Openbox
+#---------------------------------------------
+launcher_padding = 2 4 2
+launcher_background_id = 2
+launcher_icon_background_id = 0
+launcher_icon_size = 20
+launcher_icon_asb = 100 0 0
+launcher_icon_theme_override = 0
+startup_notifications = 1
+launcher_tooltip = 1
+
+# Adicione o arquivo .desktop do seu "Iniciar" aqui.
+# Crie o arquivo ~/.local/share/applications/openbox-start.desktop
+# com o conteúdo indicado no README.
+launcher_item_app = ~/.local/share/applications/openbox-start.desktop
+
+# Alternativamente, adicione apps extras (atalhos rápidos):
+# launcher_item_app = /usr/share/applications/thunar.desktop
+# launcher_item_app = /usr/share/applications/firefox.desktop
+# launcher_item_app = /usr/share/applications/xterm.desktop
+
+#---------------------------------------------
+# TASKBAR (lista de janelas abertas)
+#---------------------------------------------
+taskbar_mode = multi_desktop     # ou single_desktop
+taskbar_hide_if_empty = 0
+taskbar_padding = 0 3 2
+taskbar_background_id = 0
+taskbar_active_background_id = 0
+taskbar_name = 0
+taskbar_hide_inactive_tasks = 0
+taskbar_hide_different_monitor = 0
+taskbar_hide_different_desktop = 0
+taskbar_always_show_all_desktop_tasks = 0
+taskbar_sort_order = none
+taskbar_name_padding = 4 2
+taskbar_name_background_id = 0
+taskbar_name_active_background_id = 4
+taskbar_name_font = Tahoma 8
+taskbar_name_font_color = #FFFFFF 100
+taskbar_name_active_font_color = #FFFFFF 100
+
+# Botão de cada janela na taskbar
+task_icon = 1
+task_text = 1
+task_centered = 0
+task_tooltip = 1
+task_thumbnail = 0
+task_thumbnail_size = 210
+task_maximum_size = 200 24
+task_padding = 4 2 4
+task_font = Tahoma 8
+task_font_color = #FFFFFF 100
+task_active_font_color = #FFFFFF 100
+task_urgent_font_color = #FFFF00 100
+task_iconified_font_color = #AACCFF 80
+task_font_shadow = 0
+
+task_background_id = 2
+task_active_background_id = 4
+task_urgent_background_id = 3
+task_iconified_background_id = 2
+
+task_urgent_blink = 1
+
+# Ações dos botões do mouse na taskbar
+mouse_left = toggle_iconify
+mouse_middle = close
+mouse_right = none
+mouse_scroll_up = prev_task
+mouse_scroll_down = next_task
+
+#---------------------------------------------
+# SYSTEM TRAY (bandeja do sistema)
+#---------------------------------------------
+systray_padding = 4 4 4
+systray_background_id = 5
+systray_sort = ascending
+systray_icon_size = 16
+systray_icon_asb = 100 0 0
+systray_monitor = primary
+systray_name_filter =
+
+#---------------------------------------------
+# RELÓGIO (canto inferior direito, estilo XP)
+#---------------------------------------------
+time1_format = %H:%M
+time1_font = Tahoma Bold 9
+time1_timezone =
+time2_format = %d/%m/%Y
+time2_font = Tahoma 7
+time2_timezone =
+clock_font_color = #FFFFFF 100
+clock_padding = 4 2
+clock_background_id = 5
+clock_tooltip = %A, %d de %B de %Y
+clock_tooltip_timezone =
+clock_lclick_command = bash -c "orage || gnome-calendar || xfce4-datetime || zenity --info --text=\"$(date '+%A, %d/%m/%Y %H:%M:%S')\"" 
+clock_rclick_command =
+clock_mclick_command =
+clock_uwheel_command =
+clock_dwheel_command =
+
+#---------------------------------------------
+# TOOLTIP
+#---------------------------------------------
+tooltip = 1
+tooltip_padding = 4 4
+tooltip_show_timeout = 0.7
+tooltip_hide_timeout = 0.3
+tooltip_background_id = 1
+tooltip_font_color = #FFFFFF 100
+tooltip_font = Tahoma 8
+
+#---------------------------------------------
+# MOUSE EFFECTS
+#---------------------------------------------
+mouse_hover_icon_asb = 100 0 10
+mouse_pressed_icon_asb = 100 0 -10
