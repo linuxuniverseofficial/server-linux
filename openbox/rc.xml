@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Openbox rc.xml - Layout estilo Windows XP -->
+<!-- Gepeto Edition: menu via keybind/botão, sem clique direito no menu principal -->
+
+<openbox_config xmlns="http://openbox.org/3.4/rc"
+                xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- ============================================================ -->
+  <!-- TEMA E APARÊNCIA                                             -->
+  <!-- ============================================================ -->
+  <theme>
+    <name>Clearlooks</name>        <!-- Use: Clearlooks, Airwave, Crux, Bear2 -->
+    <titleLayout>NLC</titleLayout> <!-- N=icon, L=label, C=close (XP-like) -->
+    <keepBorder>yes</keepBorder>
+    <animateIconify>yes</animateIconify>
+    <font place="ActiveWindow">
+      <name>Tahoma</name>          <!-- fallback: Sans -->
+      <size>8</size>
+      <weight>Bold</weight>
+      <slant>Normal</slant>
+    </font>
+    <font place="InactiveWindow">
+      <name>Tahoma</name>
+      <size>8</size>
+      <weight>Normal</weight>
+      <slant>Normal</slant>
+    </font>
+    <font place="MenuHeader">
+      <name>Tahoma</name>
+      <size>9</size>
+      <weight>Bold</weight>
+      <slant>Normal</slant>
+    </font>
+    <font place="MenuItem">
+      <name>Tahoma</name>
+      <size>8</size>
+      <weight>Normal</weight>
+      <slant>Normal</slant>
+    </font>
+    <font place="OSD">
+      <name>Tahoma</name>
+      <size>9</size>
+      <weight>Bold</weight>
+      <slant>Normal</slant>
+    </font>
+  </theme>
+
+  <!-- ============================================================ -->
+  <!-- DESKTOPS (Áreas de trabalho)                                 -->
+  <!-- ============================================================ -->
+  <desktops>
+    <number>4</number>
+    <firstdesk>1</firstdesk>
+    <names>
+      <name>Desktop 1</name>
+      <name>Desktop 2</name>
+      <name>Desktop 3</name>
+      <name>Desktop 4</name>
+    </names>
+    <popupTime>875</popupTime>
+  </desktops>
+
+  <!-- ============================================================ -->
+  <!-- RESIZE / MOVE                                                -->
+  <!-- ============================================================ -->
+  <resize>
+    <drawContents>yes</drawContents>
+    <popupShow>Nonpixel</popupShow>
+    <popupPosition>Center</popupPosition>
+    <popupFixedPosition>
+      <x>10</x>
+      <y>10</y>
+    </popupFixedPosition>
+  </resize>
+
+  <!-- ============================================================ -->
+  <!-- LOCALIZAÇÃO DA DOCK / MARGENS                                -->
+  <!-- Reserva 30px no fundo para a taskbar do tint2               -->
+  <!-- ============================================================ -->
+  <margins>
+    <top>0</top>
+    <bottom>30</bottom>
+    <left>0</left>
+    <right>0</right>
+  </margins>
+
+  <!-- ============================================================ -->
+  <!-- DOCK (para applets nativos do Openbox, se quiser usar)       -->
+  <!-- ============================================================ -->
+  <dock>
+    <position>Bottom</position>
+    <floatingX>0</floatingX>
+    <floatingY>0</floatingY>
+    <direction>Horizontal</direction>
+    <autoHide>no</autoHide>
+    <hideDelay>300</hideDelay>
+    <showDelay>300</showDelay>
+    <moveButton>Middle</moveButton>
+    <stacking>Above</stacking>
+    <noStrut>no</noStrut>
+  </dock>
+
+  <!-- ============================================================ -->
+  <!-- TECLADO - Atalhos                                            -->
+  <!-- ============================================================ -->
+  <keyboard>
+    <chainQuitKey>C-g</chainQuitKey>
+
+    <!-- Super (Win key) abre o menu iniciar -->
+    <keybind key="Super_L">
+      <action name="ShowMenu">
+        <menu>root-menu</menu>
+      </action>
+    </keybind>
+
+    <!-- Alt+F2: executar programa (como o "Executar" do XP) -->
+    <keybind key="A-F2">
+      <action name="Execute">
+        <command>gmrun</command>   <!-- alternativa: rofi -show run -->
+      </action>
+    </keybind>
+
+    <!-- Alt+F4: fechar janela -->
+    <keybind key="A-F4">
+      <action name="Close"/>
+    </keybind>
+
+    <!-- Alt+Tab: alternar janelas -->
+    <keybind key="A-Tab">
+      <action name="NextWindow">
+        <finalactions>
+          <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+        </finalactions>
+      </action>
+    </keybind>
+    <keybind key="A-S-Tab">
+      <action name="PreviousWindow">
+        <finalactions>
+          <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+        </finalactions>
+      </action>
+    </keybind>
+
+    <!-- Ctrl+Alt+T: terminal -->
+    <keybind key="C-A-t">
+      <action name="Execute">
+        <command>xterm</command>   <!-- troque por: xfce4-terminal, kitty, alacritty -->
+      </action>
+    </keybind>
+
+    <!-- Ctrl+Alt+Delete: gerenciador de tarefas -->
+    <keybind key="C-A-Delete">
+      <action name="Execute">
+        <command>xfce4-taskmanager</command>
+      </action>
+    </keybind>
+
+    <!-- Print Screen: screenshot -->
+    <keybind key="Print">
+      <action name="Execute">
+        <command>scrot ~/Pictures/screenshot_%Y%m%d_%H%M%S.png</command>
+      </action>
+    </keybind>
+
+    <!-- Super+D: mostrar desktop -->
+    <keybind key="Super_L-d">
+      <action name="ToggleShowDesktop"/>
+    </keybind>
+
+    <!-- Super+E: gerenciador de arquivos -->
+    <keybind key="Super_L-e">
+      <action name="Execute">
+        <command>thunar</command>
+      </action>
+    </keybind>
+
+    <!-- Navegação entre desktops: Ctrl+Alt+Setas -->
+    <keybind key="C-A-Left">
+      <action name="GoToDesktop">
+        <to>left</to>
+        <wrap>yes</wrap>
+      </action>
+    </keybind>
+    <keybind key="C-A-Right">
+      <action name="GoToDesktop">
+        <to>right</to>
+        <wrap>yes</wrap>
+      </action>
+    </keybind>
+    <keybind key="C-A-Up">
+      <action name="GoToDesktop">
+        <to>up</to>
+        <wrap>yes</wrap>
+      </action>
+    </keybind>
+    <keybind key="C-A-Down">
+      <action name="GoToDesktop">
+        <to>down</to>
+        <wrap>yes</wrap>
+      </action>
+    </keybind>
+
+    <!-- Mover janela entre desktops: Super+Shift+Setas -->
+    <keybind key="Super_L-S-Left">
+      <action name="SendToDesktop">
+        <to>left</to>
+        <wrap>yes</wrap>
+      </action>
+    </keybind>
+    <keybind key="Super_L-S-Right">
+      <action name="SendToDesktop">
+        <to>right</to>
+        <wrap>yes</wrap>
+      </action>
+    </keybind>
+
+    <!-- Maximizar: Super+Up -->
+    <keybind key="Super_L-Up">
+      <action name="Maximize"/>
+    </keybind>
+    <!-- Restaurar/minimizar: Super+Down -->
+    <keybind key="Super_L-Down">
+      <action name="Unmaximize"/>
+    </keybind>
+
+    <!-- Snap esquerda/direita (tipo Aero Snap): Super+Left / Super+Right -->
+    <keybind key="Super_L-Left">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+    <keybind key="Super_L-Right">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>50%</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
+    </keybind>
+
+    <!-- Volume (requer pactl ou amixer) -->
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>pactl set-sink-volume @DEFAULT_SINK@ +5%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <command>pactl set-sink-volume @DEFAULT_SINK@ -5%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>pactl set-sink-mute @DEFAULT_SINK@ toggle</command>
+      </action>
+    </keybind>
+
+    <!-- Brilho (requer xbacklight ou brightnessctl) -->
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <command>brightnessctl set +10%</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <command>brightnessctl set 10%-</command>
+      </action>
+    </keybind>
+  </keyboard>
+
+  <!-- ============================================================ -->
+  <!-- MOUSE - Comportamento                                        -->
+  <!-- ============================================================ -->
+  <mouse>
+    <dragThreshold>8</dragThreshold>
+    <doubleClickTime>200</doubleClickTime>
+    <screenEdgeWarpTime>400</screenEdgeWarpTime>
+    <screenEdgeWarpMouse>false</screenEdgeWarpMouse>
+
+    <!-- Contexto: Desktop (área de trabalho) -->
+    <context name="Desktop">
+      <!-- Clique direito NÃO abre mais o root-menu aqui -->
+      <!-- (o menu fica apenas no botão da taskbar / Super key) -->
+      <!-- Se quiser reativar, descomente as linhas abaixo: -->
+      <!--
+      <mousebind button="Right" action="Press">
+        <action name="ShowMenu"><menu>root-menu</menu></action>
+      </mousebind>
+      -->
+
+      <!-- Scroll no desktop: trocar de área de trabalho -->
+      <mousebind button="Up" action="Click">
+        <action name="GoToDesktop"><to>previous</to></action>
+      </mousebind>
+      <mousebind button="Down" action="Click">
+        <action name="GoToDesktop"><to>next</to></action>
+      </mousebind>
+    </context>
+
+    <!-- Contexto: Frame da janela (borda) -->
+    <context name="Frame">
+      <mousebind button="A-Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
+      <mousebind button="A-Left" action="Click">
+        <action name="Unshade"/>
+      </mousebind>
+      <mousebind button="A-Left" action="Drag">
+        <action name="Move"/>
+      </mousebind>
+      <mousebind button="A-Right" action="Drag">
+        <action name="Resize"/>
+      </mousebind>
+      <mousebind button="A-Middle" action="Press">
+        <action name="Lower"/>
+        <action name="FocusToBottom"/>
+        <action name="Unfocus"/>
+      </mousebind>
+      <mousebind button="A-Up" action="Click">
+        <action name="GoToDesktop"><to>previous</to></action>
+      </mousebind>
+      <mousebind button="A-Down" action="Click">
+        <action name="GoToDesktop"><to>next</to></action>
+      </mousebind>
+    </context>
+
+    <!-- Contexto: Barra de título -->
+    <context name="Titlebar">
+      <mousebind button="Left" action="Drag">
+        <action name="Move"/>
+      </mousebind>
+      <mousebind button="Left" action="DoubleClick">
+        <action name="ToggleMaximize"/>
+      </mousebind>
+      <mousebind button="Middle" action="Press">
+        <action name="Lower"/>
+        <action name="FocusToBottom"/>
+        <action name="Unfocus"/>
+      </mousebind>
+      <mousebind button="Right" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="ShowMenu">
+          <menu>client-menu</menu>
+        </action>
+      </mousebind>
+      <mousebind button="Up" action="Click">
+        <action name="Shade"/>
+      </mousebind>
+      <mousebind button="Down" action="Click">
+        <action name="Unshade"/>
+      </mousebind>
+    </context>
+
+    <!-- Contexto: Botões da janela (min/max/close) -->
+    <context name="Top">
+      <mousebind button="Left" action="Drag">
+        <action name="Resize"><edge>top</edge></action>
+      </mousebind>
+    </context>
+    <context name="Left">
+      <mousebind button="Left" action="Drag">
+        <action name="Resize"><edge>left</edge></action>
+      </mousebind>
+    </context>
+    <context name="Right">
+      <mousebind button="Left" action="Drag">
+        <action name="Resize"><edge>right</edge></action>
+      </mousebind>
+    </context>
+    <context name="Bottom">
+      <mousebind button="Left" action="Drag">
+        <action name="Resize"><edge>bottom</edge></action>
+      </mousebind>
+    </context>
+    <context name="BLCorner">
+      <mousebind button="Left" action="Drag">
+        <action name="Resize"><edge>bottom_left</edge></action>
+      </mousebind>
+    </context>
+    <context name="BRCorner">
+      <mousebind button="Left" action="Drag">
+        <action name="Resize"><edge>bottom_right</edge></action>
+      </mousebind>
+    </context>
+    <context name="TLCorner">
+      <mousebind button="Left" action="Drag">
+        <action name="Resize"><edge>top_left</edge></action>
+      </mousebind>
+    </context>
+    <context name="TRCorner">
+      <mousebind button="Left" action="Drag">
+        <action name="Resize"><edge>top_right</edge></action>
+      </mousebind>
+    </context>
+
+    <!-- Contexto: Área do cliente (dentro da janela) -->
+    <context name="Client">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
+      <mousebind button="Middle" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
+      <mousebind button="Right" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
+    </context>
+
+    <!-- Contexto: Ícone do sistema na taskbar nativa -->
+    <context name="Icon">
+      <mousebind button="Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="Unshade"/>
+      </mousebind>
+      <mousebind button="Right" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+        <action name="ShowMenu">
+          <menu>client-menu</menu>
+        </action>
+      </mousebind>
+    </context>
+
+    <!-- Contexto: Todo frame (fallback) -->
+    <context name="AllDesktops">
+      <mousebind button="Left" action="Press">
+        <action name="ToggleOmnipresent"/>
+      </mousebind>
+    </context>
+
+    <context name="Shade">
+      <mousebind button="Left" action="Press">
+        <action name="ToggleShade"/>
+      </mousebind>
+    </context>
+
+    <context name="Iconify">
+      <mousebind button="Left" action="Press">
+        <action name="Iconify"/>
+      </mousebind>
+    </context>
+
+    <context name="Maximize">
+      <mousebind button="Left" action="Press">
+        <action name="ToggleMaximize"/>
+      </mousebind>
+      <mousebind button="Middle" action="Press">
+        <action name="ToggleMaximize"><direction>vertical</direction></action>
+      </mousebind>
+      <mousebind button="Right" action="Press">
+        <action name="ToggleMaximize"><direction>horizontal</direction></action>
+      </mousebind>
+    </context>
+
+    <context name="Close">
+      <mousebind button="Left" action="Press">
+        <action name="Close"/>
+      </mousebind>
+    </context>
+
+    <context name="MoveResize">
+      <mousebind button="Up" action="Click">
+        <action name="GoToDesktop"><to>previous</to></action>
+      </mousebind>
+      <mousebind button="Down" action="Click">
+        <action name="GoToDesktop"><to>next</to></action>
+      </mousebind>
+      <mousebind button="Escape" action="Click">
+        <action name="CancelMoveResize"/>
+      </mousebind>
+    </context>
+  </mouse>
+
+  <!-- ============================================================ -->
+  <!-- MENU                                                         -->
+  <!-- ============================================================ -->
+  <menu>
+    <!-- menu.xml separado para facilitar edição -->
+    <file>~/.config/openbox/menu.xml</file>
+    <hideDelay>200</hideDelay>
+    <middle>no</middle>
+    <submenuShowDelay>100</submenuShowDelay>
+    <submenuHideDelay>400</submenuHideDelay>
+    <applicationIcons>yes</applicationIcons>
+    <manageDesktops>yes</manageDesktops>
+  </menu>
+
+  <!-- ============================================================ -->
+  <!-- APLICATIVOS - Regras por janela                              -->
+  <!-- ============================================================ -->
+  <applications>
+
+    <!-- Firefox: abre maximizado -->
+    <application class="Firefox">
+      <maximized>yes</maximized>
+    </application>
+
+    <!-- Chromium: abre maximizado -->
+    <application class="Chromium">
+      <maximized>yes</maximized>
+    </application>
+
+    <!-- Gerenciador de arquivos: tamanho fixo -->
+    <application class="Thunar" name="thunar">
+      <size>
+        <width>900</width>
+        <height>600</height>
+      </size>
+      <position force="no">
+        <x>center</x>
+        <y>center</y>
+      </position>
+    </application>
+
+    <!-- Terminal: tamanho razoável -->
+    <application class="XTerm">
+      <size>
+        <width>800</width>
+        <height>500</height>
+      </size>
+    </application>
+
+    <!-- tint2: sempre abaixo de tudo, sem borda, sem decoração -->
+    <application class="tint2" name="tint2">
+      <layer>below</layer>
+      <decor>no</decor>
+      <focus>no</focus>
+    </application>
+
+    <!-- Conky: sem decoração, fixo no fundo -->
+    <application class="Conky" name="conky">
+      <layer>below</layer>
+      <decor>no</decor>
+      <focus>no</focus>
+      <desktop>all</desktop>
+    </application>
+
+    <!-- Janelas de splash/loading: sem decoração -->
+    <application type="splash">
+      <decor>no</decor>
+    </application>
+
+  </applications>
+
+</openbox_config>
