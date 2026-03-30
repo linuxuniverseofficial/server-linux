@@ -40,16 +40,14 @@ Crie o arquivo abaixo:
   mkdir -p ~/.local/share/applications
   
   Conteúdo de ~/.local/share/applications/openbox-start.desktop:
-  ┌──────────────────────────────────────────────────────────────┐
-  │ [Desktop Entry]                                              │
-  │ Name=Iniciar                                                 │
-  │ Comment=Menu Iniciar                                         │
-  │ Exec=openbox --reconfigure                                   │
-  │ Icon=start-here                                              │
-  │ Type=Application                                             │
-  │ Categories=System;                                           │
-  │ NoDisplay=false                                              │
-  └──────────────────────────────────────────────────────────────┘
+[Desktop Entry]                                               
+Name=Iniciar                                                  
+Comment=Menu Iniciar                                          
+Exec=openbox --reconfigure                                    
+Icon=start-here                                               
+Type=Application                                              
+Categories=System;                                            
+NoDisplay=false
 
   O ícone "start-here" existe na maioria dos temas GTK/icon.
   Alternativas: "distributor-logo", "emblem-system", "go-home"
