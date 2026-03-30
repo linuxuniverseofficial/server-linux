@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- menu.xml - Menu Iniciar estilo Windows XP para Openbox -->
+<!-- Este arquivo é referenciado pelo rc.xml                -->
+<!-- Aberto via: Super key, ou pelo botão "Iniciar" no tint2 -->
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+  <!-- ============================================================ -->
+  <!-- MENU RAIZ - é o "Iniciar"                                    -->
+  <!-- ============================================================ -->
+  <menu id="root-menu" label="Iniciar">
+
+    <!-- Cabeçalho visual (apenas label, sem ação) -->
+    <separator label="── Menu Iniciar ──"/>
+
+    <!-- ── Programas Fixados (Pinned) ─────────────────────────── -->
+    <item label="Navegador Web">
+      <action name="Execute">
+        <!-- Tenta firefox, fallback chromium, fallback xdg-open -->
+        <command>bash -c "firefox || chromium || chromium-browser || xdg-open about:blank"</command>
+        <startupnotify>
+          <enabled>yes</enabled>
+          <name>Navegador Web</name>
+        </startupnotify>
+      </action>
+    </item>
+
+    <item label="Gerenciador de Arquivos">
+      <action name="Execute">
+        <command>bash -c "thunar || nemo || nautilus || pcmanfm"</command>
+        <startupnotify>
+          <enabled>yes</enabled>
+          <name>Gerenciador de Arquivos</name>
+        </startupnotify>
+      </action>
+    </item>
+
+    <item label="Terminal">
+      <action name="Execute">
+        <command>bash -c "xfce4-terminal || kitty || alacritty || urxvt || xterm"</command>
+        <startupnotify>
+          <enabled>yes</enabled>
+          <name>Terminal</name>
+        </startupnotify>
+      </action>
+    </item>
+
+    <item label="Editor de Texto">
+      <action name="Execute">
+        <command>bash -c "mousepad || gedit || kate || leafpad || geany || xed"</command>
+        <startupnotify>
+          <enabled>yes</enabled>
+          <name>Editor de Texto</name>
+        </startupnotify>
+      </action>
+    </item>
+
+    <separator/>
+
+    <!-- ── Todos os Programas (submenus) ──────────────────────── -->
+    <menu id="submenu-internet" label="Internet e Rede">
+      <item label="Firefox">
+        <action name="Execute"><command>firefox</command></action>
+      </item>
+      <item label="Chromium">
+        <action name="Execute"><command>chromium</command></action>
+      </item>
+      <item label="Thunderbird (E-mail)">
+        <action name="Execute"><command>thunderbird</command></action>
+      </item>
+      <item label="Transmission (Torrent)">
+        <action name="Execute"><command>transmission-gtk</command></action>
+      </item>
+      <item label="FileZilla (FTP)">
+        <action name="Execute"><command>filezilla</command></action>
+      </item>
+      <item label="Wireshark">
+        <action name="Execute"><command>wireshark</command></action>
+      </item>
+    </menu>
+
+    <menu id="submenu-escritorio" label="Escritório">
+      <item label="LibreOffice Writer">
+        <action name="Execute"><command>libreoffice --writer</command></action>
+      </item>
+      <item label="LibreOffice Calc">
+        <action name="Execute"><command>libreoffice --calc</command></action>
+      </item>
+      <item label="LibreOffice Impress">
+        <action name="Execute"><command>libreoffice --impress</command></action>
+      </item>
+      <item label="Evince (PDF)">
+        <action name="Execute"><command>evince</command></action>
+      </item>
+      <item label="Okular (PDF/DOC)">
+        <action name="Execute"><command>okular</command></action>
+      </item>
+    </menu>
+
+    <menu id="submenu-multimidia" label="Multimídia">
+      <item label="VLC Media Player">
+        <action name="Execute"><command>vlc</command></action>
+      </item>
+      <item label="mpv">
+        <action name="Execute"><command>mpv</command></action>
+      </item>
+      <item label="Rhythmbox (Música)">
+        <action name="Execute"><command>rhythmbox</command></action>
+      </item>
+      <item label="Audacity (Áudio)">
+        <action name="Execute"><command>audacity</command></action>
+      </item>
+      <item label="GIMP (Imagens)">
+        <action name="Execute"><command>gimp</command></action>
+      </item>
+      <item label="Visor de Imagens">
+        <action name="Execute">
+          <command>bash -c "eog || ristretto || shotwell || gthumb"</command>
+        </action>
+      </item>
+    </menu>
+
+    <menu id="submenu-sistema" label="Ferramentas do Sistema">
+      <item label="Gerenciador de Arquivos">
+        <action name="Execute">
+          <command>bash -c "thunar || nemo || nautilus || pcmanfm"</command>
+        </action>
+      </item>
+      <item label="Monitor do Sistema">
+        <action name="Execute">
+          <command>bash -c "xfce4-taskmanager || gnome-system-monitor || htop"</command>
+        </action>
+      </item>
+      <item label="Gerenciador de Disco">
+        <action name="Execute"><command>gnome-disks</command></action>
+      </item>
+      <item label="htop (Terminal)">
+        <action name="Execute">
+          <command>bash -c "xfce4-terminal -e htop || xterm -e htop"</command>
+        </action>
+      </item>
+      <item label="GParted">
+        <action name="Execute"><command>gparted</command></action>
+      </item>
+      <item label="Synaptic (Pacotes)">
+        <action name="Execute"><command>synaptic</command></action>
+      </item>
+    </menu>
+
+    <menu id="submenu-config" label="Configurações">
+      <item label="Configurações de Exibição">
+        <action name="Execute"><command>arandr</command></action>
+      </item>
+      <item label="Gerenciador de Temas">
+        <action name="Execute">
+          <command>bash -c "lxappearance || xfce4-appearance-settings"</command>
+        </action>
+      </item>
+      <item label="Configuração de Som">
+        <action name="Execute">
+          <command>bash -c "pavucontrol || xfce4-mixer"</command>
+        </action>
+      </item>
+      <item label="Gerenciador de Rede">
+        <action name="Execute">
+          <command>bash -c "nm-connection-editor || wicd-gtk"</command>
+        </action>
+      </item>
+      <item label="Impressoras">
+        <action name="Execute"><command>system-config-printer</command></action>
+      </item>
+      <item label="Editor de Menus (Openbox)">
+        <action name="Execute">
+          <command>bash -c "mousepad ~/.config/openbox/menu.xml || xterm -e 'nano ~/.config/openbox/menu.xml'"</command>
+        </action>
+      </item>
+    </menu>
+
+    <separator/>
+
+    <!-- ── Documentos e Lugares ───────────────────────────────── -->
+    <item label="Meus Documentos">
+      <action name="Execute">
+        <command>bash -c "thunar ~/Documents || pcmanfm ~/Documents || xdg-open ~/Documents"</command>
+      </action>
+    </item>
+
+    <item label="Imagens">
+      <action name="Execute">
+        <command>bash -c "thunar ~/Pictures || pcmanfm ~/Pictures || xdg-open ~/Pictures"</command>
+      </action>
+    </item>
+
+    <item label="Downloads">
+      <action name="Execute">
+        <command>bash -c "thunar ~/Downloads || pcmanfm ~/Downloads || xdg-open ~/Downloads"</command>
+      </action>
+    </item>
+
+    <separator/>
+
+    <!-- ── Executar ───────────────────────────────────────────── -->
+    <item label="Executar...">
+      <action name="Execute">
+        <command>bash -c "gmrun || rofi -show run || xfce4-appfinder --collapsed"</command>
+      </action>
+    </item>
+
+    <!-- ── Openbox ────────────────────────────────────────────── -->
+    <menu id="submenu-openbox" label="Openbox">
+      <item label="Reconfigurar Openbox">
+        <action name="Reconfigure"/>
+      </item>
+      <item label="Reiniciar Openbox">
+        <action name="Restart"/>
+      </item>
+      <item label="Editar rc.xml">
+        <action name="Execute">
+          <command>bash -c "mousepad ~/.config/openbox/rc.xml || xterm -e 'nano ~/.config/openbox/rc.xml'"</command>
+        </action>
+      </item>
+    </menu>
+
+    <separator/>
+
+    <!-- ── Sessão ─────────────────────────────────────────────── -->
+    <item label="Bloquear Tela">
+      <action name="Execute">
+        <command>bash -c "xscreensaver-command -lock || i3lock || slock || xlock"</command>
+      </action>
+    </item>
+
+    <item label="Sair / Desligar...">
+      <action name="Execute">
+        <!-- Tenta logout managers comuns; fallback: openbox exit -->
+        <command>bash -c "xfce4-session-logout || lxsession-logout || oblogout"</command>
+      </action>
+    </item>
+
+    <item label="Sair do Openbox">
+      <action name="Exit">
+        <prompt>yes</prompt>
+      </action>
+    </item>
+
+  </menu>
+
+  <!-- ============================================================ -->
+  <!-- MENU DE JANELA (clique direito na barra de título)           -->
+  <!-- ============================================================ -->
+  <menu id="client-menu">
+    <item label="Restaurar">
+      <action name="Unmaximize"/>
+    </item>
+    <item label="Mover">
+      <action name="Move"/>
+    </item>
+    <item label="Redimensionar">
+      <action name="Resize"/>
+    </item>
+    <item label="Minimizar">
+      <action name="Iconify"/>
+    </item>
+    <item label="Maximizar">
+      <action name="ToggleMaximize"/>
+    </item>
+    <item label="Enrolar">
+      <action name="ToggleShade"/>
+    </item>
+    <separator/>
+    <item label="Sempre visível">
+      <action name="ToggleOmnipresent"/>
+    </item>
+    <item label="Sempre no topo">
+      <action name="ToggleAlwaysOnTop"/>
+    </item>
+    <item label="Sempre embaixo">
+      <action name="ToggleAlwaysOnBottom"/>
+    </item>
+    <separator/>
+    <menu id="client-send-to" label="Enviar para desktop">
+      <item label="Desktop 1"><action name="SendToDesktop"><to>1</to></action></item>
+      <item label="Desktop 2"><action name="SendToDesktop"><to>2</to></action></item>
+      <item label="Desktop 3"><action name="SendToDesktop"><to>3</to></action></item>
+      <item label="Desktop 4"><action name="SendToDesktop"><to>4</to></action></item>
+    </menu>
+    <separator/>
+    <item label="Fechar">
+      <action name="Close"/>
+    </item>
+  </menu>
+
+</openbox_menu>
