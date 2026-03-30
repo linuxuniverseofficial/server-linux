@@ -20,7 +20,7 @@ Crie os diretórios se não existirem:
 DEPENDÊNCIAS
 ────────────
 Essenciais:
-  sudo apt install openbox tint2 feh picom
+  sudo apt install openbox tint2 feh picom xterm gmrun numlockx
 
 Recomendados:
   sudo apt install xterm thunar lxappearance arandr \
