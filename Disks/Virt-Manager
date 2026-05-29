@@ -1,0 +1,3 @@
+Convert disk to image
+sudo dd if=/dev/sdX of=imagem_disco.img bs=4M status=progress conv=sparse
+sudo qemu-img convert -f raw -O qcow2 -c imagem_disco.img disco_virtual.qcow2
